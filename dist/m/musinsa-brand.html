@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>무신사·29CM 입점 브랜드 마진·수수료·ROAS 계산기 (수수료 28.0% 기준)</title><meta name="description" content="무신사·29CM 입점 브랜드 판매수수료 28.0%와 배송비·포장비·광고비·부가세를 반영한 실제 순수익과 손익분기 ROAS를 계산합니다."><link rel="canonical" href="https://0520goeus.github.io/seller-margin-calc/m/musinsa-brand.html">
+<link rel="stylesheet" href="https://0520goeus.github.io/seller-margin-calc/style.css"></head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="https://0520goeus.github.io/seller-margin-calc/">📊 셀러 마진·수수료 계산기</a>
+  <nav>
+    <a href="https://0520goeus.github.io/seller-margin-calc/#markets">마켓별 수수료 (25종)</a>
+    <a href="https://0520goeus.github.io/vs-pick/">가성비 VS 사전</a>
+    <a href="https://0520goeus.github.io/life-fee-calc/">직구관세·가전용량</a>
+    <a href="https://0520goeus.github.io/money-calc-kr/">연봉 실수령액</a>
+    <a href="https://0520goeus.github.io/benefit-calc-kr/">지원금·실업급여</a>
+  </nav>
+</div></header>
+<main class="wrap">
+        <section class="card">
+          <h1>무신사·29CM 입점 브랜드 마진·순수익 계산기</h1>
+          <p class="sub">패션 플랫폼 위탁/입점 수수료 25~30% 구간 손익분기 계산</p>
+          
+    <div class="grid2">
+      <div>
+        <label>판매가 (원) <input id="sell" type="number" value="69000" oninput="calc()"></label>
+        <label>매입 원가 (원, 부가세 포함) <input id="cost" type="number" value="22000" oninput="calc()"></label>
+        <label>마켓 수수료율 (%) <input id="fee" type="number" step="0.01" value="28.0" oninput="calc()"></label>
+        <label>고객 결제 배송비 (원) <input id="shipIn" type="number" value="3000" oninput="calc()"></label>
+        <label>실제 택배비+포장비 (원) <input id="shipOut" type="number" value="3200" oninput="calc()"></label>
+        <label>주문 1건당 광고비 (원) <input id="ad" type="number" value="1500" oninput="calc()"></label>
+      </div>
+      <div class="res-box">
+        <div>1건 판매 시 실제 순수익 (세후)</div>
+        <div class="big" id="netProfit">0원</div>
+        <div class="row"><span>순수익 마진율</span><strong id="marginPct" style="color:var(--accent)">0%</strong></div>
+        <div class="row"><span>손익분기 최소 ROAS (광고수익률)</span><strong id="beRoas" style="color:var(--warn)">0%</strong></div>
+        <div class="row"><span>마켓 판매·결제 수수료</span><span id="feeWon">0원</span></div>
+        <div class="row"><span>납부 예상 부가세 (매출-매입)</span><span id="vatWon">0원</span></div>
+        <div class="row"><span>손익분기 최소 판매가</span><strong id="breakEven">0원</strong></div>
+        <div class="row"><span>월 100건 / 500건 순수익</span><strong id="monthCombo">0원</strong></div>
+      </div>
+    </div>
+    <script>
+    function won(n){return Math.round(n).toLocaleString('ko-KR') + '원';}
+    function calc(){
+      const sell=parseFloat(document.getElementById('sell').value)||0;
+      const cost=parseFloat(document.getElementById('cost').value)||0;
+      const feePct=parseFloat(document.getElementById('fee').value)||0;
+      const shipIn=parseFloat(document.getElementById('shipIn').value)||0;
+      const shipOut=parseFloat(document.getElementById('shipOut').value)||0;
+      const ad=parseFloat(document.getElementById('ad').value)||0;
+      const feeWon=sell*(feePct/100)+shipIn*0.033;
+      const rev=sell+shipIn;
+      const ded=cost+feeWon+shipOut+ad;
+      const vat=Math.max(0,(rev-ded)/11);
+      const net=rev-ded-vat;
+      const margin=sell>0?(net/sell*100):0;
+      const preAdMargin=sell>0?((net+ad)/sell):0;
+      const beRoas=preAdMargin>0?(100/preAdMargin):9999;
+      const breakEven=(cost+shipOut-shipIn+ad)/Math.max(0.1,(1-feePct/100));
+      document.getElementById('netProfit').textContent=won(net);
+      document.getElementById('marginPct').textContent=margin.toFixed(1)+'%';
+      document.getElementById('beRoas').textContent=Math.round(beRoas)+'% 이상';
+      document.getElementById('feeWon').textContent=won(feeWon);
+      document.getElementById('vatWon').textContent=won(vat);
+      document.getElementById('breakEven').textContent=won(breakEven);
+      document.getElementById('monthCombo').textContent=won(net*100)+' / '+won(net*500);
+    }
+    calc();
+    </script>
+        </section>
+        <section class="card"><p style="font-size:12.5px;color:var(--sub);margin:0 0 8px;">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p><h2>📦 셀러 필수 택배박스·라벨프린터·포장 소모품 최저가</h2><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1049499,"template":"carousel","trackingCode":"AF9170267","width":"100%","height":"140","tsource":""});</script></section>
+        <section class="card">
+          <h2>다품목 정산용 [셀러 마진·정산 자동계산 엑셀 템플릿 v1]</h2>
+          <p class="sub">상품이 10개 이상이라면 웹 계산기 대신 매크로 없는 순수 수식형 다채널 정산 엑셀 템플릿으로 월별 순이익을 한 번에 관리할 수 있습니다.</p>
+          <div class="preview-grid">
+            <img src="https://0520goeus.github.io/seller-margin-calc/마진템플릿_대표이미지.png" alt="셀러 마진정산 자동계산 엑셀 템플릿 대표 이미지" loading="lazy">
+            <img src="https://0520goeus.github.io/seller-margin-calc/마진템플릿_상세이미지.png" alt="셀러 마진정산 자동계산 엑셀 템플릿 상세 화면" loading="lazy">
+          </div>
+        </section>
+        </main>
+<footer><div class="wrap">
+  <p>패밀리 사이트: <a href="https://0520goeus.github.io/price-note/">해뎐 가격노트</a> · <a href="https://0520goeus.github.io/elec-calc/">전기세 얼마</a> · <a href="https://0520goeus.github.io/life-money-lab/">생활비 물가 연구소</a> · <a href="https://0520goeus.github.io/vs-pick/">가성비 VS 사전</a> · <a href="https://0520goeus.github.io/life-fee-calc/">가전용량·직구관세</a> · <a href="https://0520goeus.github.io/money-calc-kr/">실수령액 계산기</a> · <a href="https://0520goeus.github.io/benefit-calc-kr/">지원금·실업급여</a> · <a href="https://lifefixnote-kr.blogspot.com/">생활해결 노트</a></p>
+</div></footer></body></html>

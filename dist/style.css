@@ -1,0 +1,28 @@
+
+:root{--bg:#0f172a;--card:#1e293b;--line:#334155;--ink:#f8fafc;--sub:#94a3b8;--accent:#38d9a9;--blue:#3b82f6;--warn:#f59e0b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,"Apple SD Gothic Neo",sans-serif}
+header{background:#090d16;border-bottom:1px solid var(--line);padding:16px 20px}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header a{color:var(--sub);text-decoration:none;font-size:14px;font-weight:600}
+header .brand{color:#fff;font-size:19px;font-weight:800}
+nav{display:flex;gap:14px;flex-wrap:wrap}
+main{padding:28px 0 60px;display:grid;gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+h1{margin:0 0 8px;font-size:27px;letter-spacing:-.02em}h2{margin:0 0 14px;font-size:20px}
+.sub{color:var(--sub);margin:0 0 16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px}
+.tile{display:grid;gap:4px;padding:14px 15px;border:1px solid var(--line);border-radius:12px;background:#0f172a;color:var(--ink);text-decoration:none}
+.tile:hover{border-color:var(--accent)}
+.tile b{font-size:15px}.tile small{color:var(--sub)}
+label{display:grid;gap:6px;font-size:13.5px;color:var(--sub);margin-bottom:12px}
+input{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#0f172a;color:#fff;font:inherit;font-size:15px}
+.res-box{background:#0f172a;border:2px solid var(--accent);border-radius:14px;padding:22px;display:grid;gap:11px}
+.big{font-size:36px;font-weight:800;color:var(--accent)}
+.row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px}
+.preview-grid img{width:100%;border-radius:12px;border:1px solid var(--line)}
+.faq{background:#0f172a;padding:14px 16px;border-radius:10px;margin-bottom:10px}
+footer{border-top:1px solid var(--line);padding:24px 0 44px;color:var(--sub);font-size:13.5px}
+footer a{color:var(--accent);text-decoration:none}
